@@ -4,38 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* @import 'tailwindcss/preflight';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; */
-
-@layer base {
-	:root {
-		--sidebar-background: 217.2 32.6% 15%;
-		--sidebar-foreground: 210 40% 98%;
-		--sidebar-primary: 217.2 91.2% 59.8%;
-		--sidebar-primary-foreground: 222.2 47.4% 11.2%;
-		--sidebar-accent: 224.3 76.3% 48%;
-		--sidebar-accent-foreground: 210 40% 98%;
-		--sidebar-border: 217.2 32.6% 25%;
-		--sidebar-ring: 224.3 76.3% 48%;
-	}
-
-	.dark {
-		--sidebar-background: 240 5.9% 10%;
-		--sidebar-foreground: 240 4.8% 95.9%;
-		--sidebar-primary: 0 0% 98%;
-		--sidebar-primary-foreground: 240 5.9% 10%;
-		--sidebar-accent: 240 3.7% 15.9%;
-		--sidebar-accent-foreground: 240 4.8% 95.9%;
-		--sidebar-border: 240 3.7% 15.9%;
-		--sidebar-ring: 217.2 91.2% 59.8%;
-	}
-}
-
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
-
 :root {
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -60,7 +28,8 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	--radius: 0.625rem;
-	--background: oklch(1 0 0);
+
+	/* --background: oklch(1 0 0);
 	--foreground: oklch(0.129 0.042 264.695);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.129 0.042 264.695);
@@ -82,7 +51,8 @@
 	--chart-2: oklch(0.6 0.118 184.704);
 	--chart-3: oklch(0.398 0.07 227.392);
 	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
+	--chart-5: oklch(0.769 0.188 70.08); */
+
 	/* --sidebar: oklch(0.984 0.003 247.858);
 	--sidebar-foreground: oklch(0.129 0.042 264.695);
 	--sidebar-primary: oklch(0.208 0.042 265.755);
@@ -91,29 +61,56 @@
 	--sidebar-accent-foreground: oklch(0.208 0.042 265.755);
 	--sidebar-border: oklch(0.929 0.013 255.508);
 	--sidebar-ring: oklch(0.704 0.04 256.788); */
-	--sidebar-background: 217.2 32.6% 15%;
-	--sidebar-foreground: 210 40% 98%;
-	--sidebar-primary: 217.2 91.2% 59.8%;
-	--sidebar-primary-foreground: 222.2 47.4% 11.2%;
-	--sidebar-accent: 224.3 76.3% 48%;
-	--sidebar-accent-foreground: 210 40% 98%;
-	--sidebar-border: 217.2 32.6% 25%;
-	--sidebar-ring: 224.3 76.3% 48%;
+
+	--background: oklch(0.98 0.02 140);
+	--foreground: oklch(0.15 0.04 120);
+	--card: oklch(0.97 0.015 130);
+	--card-foreground: oklch(0.18 0.04 120);
+	--popover: oklch(0.98 0.02 140);
+	--popover-foreground: oklch(0.15 0.04 120);
+	--primary: oklch(0.5 0.2 145);
+	--primary-foreground: oklch(0.98 0.015 120);
+	--secondary: oklch(0.92 0.02 100);
+	--secondary-foreground: oklch(0.3 0.07 120);
+	--muted: oklch(0.95 0.015 110);
+	--muted-foreground: oklch(0.45 0.06 120);
+	--accent: oklch(0.88 0.02 80);
+	--accent-foreground: oklch(0.22 0.05 120);
+	--destructive: oklch(0.6 0.2 30);
+	--border: oklch(0.92 0.02 120);
+	--input: oklch(0.9 0.015 120);
+	--ring: oklch(0.7 0.12 145);
+	--chart-1: oklch(0.7 0.18 40);
+	--chart-2: oklch(0.5 0.15 180);
+	--chart-3: oklch(0.4 0.12 220);
+	--chart-4: oklch(0.8 0.2 85);
+	--chart-5: oklch(0.75 0.18 70);
+
+	--sidebar: #bce2bf;
+	--sidebar-background: 120 20% 95%;
+	--sidebar-foreground: 120 30% 25%;
+	--sidebar-primary: 134 50% 45%;
+	--sidebar-primary-foreground: 120 40% 95%;
+	--sidebar-accent: 45 90% 55%;
+	--sidebar-accent-foreground: 120 40% 20%;
+	--sidebar-border: 120 20% 85%;
+	--sidebar-ring: 134 50% 45%;
+
+	/* --sidebar: #bce2bf;
+	--sidebar-background: 120 20% 95%;
+	--sidebar-foreground: 120 30% 25%;
+	--sidebar-primary: 134 50% 45%;
+	--sidebar-primary-foreground: 120 40% 95%;
+	--sidebar-accent: 45 90% 55%;
+	--sidebar-accent-foreground: 120 40% 20%;
+	--sidebar-border: 120 20% 85%;
+	--sidebar-ring: 134 50% 45%; */
 }
 
 a {
 	text-decoration: none;
 	font-weight: 500;
 }
-
-/* a {
-	font-weight: 500;
-	color: #646cff;
-	text-decoration: inherit;
-}
-a:hover {
-	color: #535bf2;
-} */
 
 body {
 	margin: 0;
@@ -128,40 +125,8 @@ h1 {
 	line-height: 1.1;
 }
 
-button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	/* background-color: #1a1a1a; */
-	cursor: pointer;
-	transition: border-color 0.25s;
-}
-/* button:hover {
-	border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-} */
-
-@media (prefers-color-scheme: light) {
-	/* :root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	} */
-}
-
 .dark {
-	--background: oklch(0.129 0.042 264.695);
+	/* --background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);
 	--card: oklch(0.208 0.042 265.755);
 	--card-foreground: oklch(0.984 0.003 247.858);
@@ -183,7 +148,8 @@ button:focus-visible {
 	--chart-2: oklch(0.696 0.17 162.48);
 	--chart-3: oklch(0.769 0.188 70.08);
 	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
+	--chart-5: oklch(0.645 0.246 16.439); */
+
 	/* --sidebar: oklch(0.208 0.042 265.755);
 	--sidebar-foreground: oklch(0.984 0.003 247.858);
 	--sidebar-primary: oklch(0.488 0.243 264.376);
@@ -192,14 +158,64 @@ button:focus-visible {
 	--sidebar-accent-foreground: oklch(0.984 0.003 247.858);
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.551 0.027 264.364); */
-	--sidebar-background: 240 5.9% 10%;
-	--sidebar-foreground: 240 4.8% 95.9%;
-	--sidebar-primary: 224.3 76.3% 48%;
-	--sidebar-primary-foreground: 0 0% 100%;
-	--sidebar-accent: 240 3.7% 15.9%;
-	--sidebar-accent-foreground: 240 4.8% 95.9%;
-	--sidebar-border: 240 3.7% 15.9%;
-	--sidebar-ring: 217.2 91.2% 59.8%;
+
+	/* --background: oklch(0.18 0.05 120);
+	--foreground: oklch(0.9 0.02 100);
+	--card: oklch(0.22 0.06 130);
+	--card-foreground: oklch(0.85 0.03 110);
+	--popover: oklch(0.2 0.05 120);
+	--popover-foreground: oklch(0.88 0.025 105);
+	--primary: oklch(0.45 0.2 140);
+	--primary-foreground: oklch(0.98 0.015 120);
+	--secondary: oklch(0.28 0.07 100);
+	--secondary-foreground: oklch(0.85 0.025 110);
+	--muted: oklch(0.25 0.05 120);
+	--muted-foreground: oklch(0.75 0.06 100);
+	--accent: oklch(0.4 0.1 80);
+	--accent-foreground: oklch(0.9 0.02 100);
+	--destructive: oklch(0.55 0.15 30);
+	--border: oklch(0.3 0.06 120);
+	--input: oklch(0.35 0.07 125);
+	--ring: oklch(0.6 0.12 140);
+	--chart-1: oklch(0.65 0.22 40);
+	--chart-2: oklch(0.5 0.15 180);
+	--chart-3: oklch(0.38 0.12 220);
+	--chart-4: oklch(0.7 0.18 85);
+	--chart-5: oklch(0.65 0.18 70); */
+
+	--background: oklch(0.12 0.04 120);
+	--foreground: oklch(0.9 0.03 100);
+	--card: oklch(0.15 0.05 130);
+	--card-foreground: oklch(0.88 0.025 120);
+	--popover: oklch(0.14 0.045 120);
+	--popover-foreground: oklch(0.9 0.03 100);
+	--primary: oklch(0.45 0.18 145);
+	--primary-foreground: oklch(0.98 0.02 120);
+	--secondary: oklch(0.2 0.05 100);
+	--secondary-foreground: oklch(0.85 0.03 110);
+	--muted: oklch(0.25 0.05 120);
+	--muted-foreground: oklch(0.75 0.08 100);
+	--accent: oklch(0.3 0.07 80);
+	--accent-foreground: oklch(0.9 0.025 120);
+	--destructive: oklch(0.55 0.18 30);
+	--border: oklch(0.2 0.05 120);
+	--input: oklch(0.3 0.07 130);
+	--ring: oklch(0.6 0.12 145);
+	--chart-1: oklch(0.65 0.22 40);
+	--chart-2: oklch(0.5 0.15 180);
+	--chart-3: oklch(0.38 0.12 220);
+	--chart-4: oklch(0.7 0.18 85);
+	--chart-5: oklch(0.65 0.18 70);
+
+	--sidebar: #1b3a2b;
+	--sidebar-background: 120 40% 10%;
+	--sidebar-foreground: 120 40% 85%;
+	--sidebar-primary: 134 50% 55%;
+	--sidebar-primary-foreground: 120 40% 95%;
+	--sidebar-accent: 45 80% 50%;
+	--sidebar-accent-foreground: 120 40% 15%;
+	--sidebar-border: 120 40% 20%;
+	--sidebar-ring: 134 50% 55%;
 }
 
 @theme inline {
@@ -254,14 +270,6 @@ button:focus-visible {
 	width: 100vw;
 }
 
-*,
-::before,
-::after {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
-
 html {
 	scroll-behavior: smooth;
 }
@@ -289,6 +297,41 @@ button,
 body {
 	font-family: var(--primary-style);
 	font-size: var(--normal-font-size);
+}
+
+.shared-header-sidebar-styles {
+	background-color: var(--sidebar);
+	color: black;
+	color: var(--sidebar-foreground);
+	border-bottom: 3px solid var(--sidebar-border);
+}
+
+.custom-sheet-class {
+	width: 100% !important;
+}
+
+@media (max-width: 766px) {
+	.somen {
+		display: none;
+	}
+}
+
+@media (min-width: 640px) {
+	.custom-sheet-class {
+		max-width: 100% !important;
+	}
+}
+
+@media (min-width: 1024px) {
+	.custom-sheet-class {
+		max-width: 60% !important;
+	}
+}
+
+@media (min-width: 1280px) {
+	.custom-sheet-class {
+		max-width: 60% !important;
+	}
 }
 
 .loadingSpinnerContainer {

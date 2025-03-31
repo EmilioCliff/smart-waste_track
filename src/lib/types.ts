@@ -1,4 +1,17 @@
-export interface user {
+import { ReactNode } from 'react';
+
+export interface ContextWrapperProps {
+	children: ReactNode;
+}
+
+export interface tableFilterType {
+	options: {
+		label: string;
+		value: string;
+	}[];
+}
+
+export interface User {
 	role: string;
 	name: string;
 }
@@ -13,7 +26,7 @@ export interface company {
 	location: location;
 }
 
-export interface dustbin {
+export interface Dustbin {
 	id: string;
 	distanceSensor: number;
 	gasSensor: number;

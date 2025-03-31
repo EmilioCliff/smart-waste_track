@@ -15,7 +15,7 @@ import {
 function AppSidebar() {
 	return (
 		<Sidebar
-			className="mt-20"
+			className="mt-20 sidebar"
 			side="left"
 			variant="sidebar"
 			collapsible="icon"
@@ -29,16 +29,16 @@ function AppSidebar() {
 								const isActive = location.pathname === item.url;
 
 								return (
-									<SidebarMenuItem key={item.title}>
+									<SidebarMenuItem
+										className={`${
+											isActive
+												? 'bg-green-800 text-white'
+												: 'bg-transparent text-black dark:text-white'
+										} rounded-md`}
+										key={item.title}
+									>
 										{/* <SidebarMenuSkeleton /> */}
-										<SidebarMenuButton
-											asChild
-											className={`${
-												isActive
-													? 'bg-sidebar-accent text-sidebar-accent-foreground'
-													: 'bg-transparent text-gray-400'
-											} `}
-										>
+										<SidebarMenuButton asChild>
 											<Link to={item.url}>
 												<item.icon />
 												<span>{item.title}</span>
@@ -59,8 +59,8 @@ export default AppSidebar;
 
 const items = [
 	{
-		title: 'Dashboard',
-		url: '/dashboard',
+		title: 'Dustbins',
+		url: '/dustbins',
 		icon: Home,
 	},
 	{
