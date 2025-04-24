@@ -5,7 +5,7 @@ venv
 
 .env
 
-/aws_docs
+./aws_docs
 
 
 
