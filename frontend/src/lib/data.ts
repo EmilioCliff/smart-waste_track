@@ -158,3 +158,46 @@ export const testDustbins = [
 		apartmentName: 'Horizon Towers',
 	},
 ];
+
+export const testApartments = [
+	{
+		id: 1,
+		name: 'Greenwood Apartments',
+	},
+	{
+		id: 2,
+		name: 'Sunrise Towers',
+	},
+	{
+		id: 3,
+		name: 'West End Apartments',
+	},
+	{
+		id: 4,
+		name: 'Blue Sky Residences',
+	},
+	{
+		id: 5,
+		name: 'Eco Haven',
+	},
+	{
+		id: 6,
+		name: 'Garden Villas',
+	},
+	{
+		id: 7,
+		name: 'Ocean View Apartments',
+	},
+	{
+		id: 8,
+		name: 'Palm Grove',
+	},
+	{
+		id: 9,
+		name: 'Serene Heights',
+	},
+	{
+		id: 10,
+		name: 'Horizon Towers',
+	},
+];

@@ -9,7 +9,6 @@ import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
-	SidebarMenuSkeleton,
 } from '@/components/ui/sidebar';
 
 function AppSidebar() {

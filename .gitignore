@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# AWS-related files
+.graphqlconfig.yml
+aws-exports.js

@@ -52,3 +52,8 @@ export interface pagination {
 	totalData: number;
 	totalPages: number;
 }
+
+export interface commonDataResponse {
+	id: number;
+	name: string;
+}
