@@ -27,3 +27,4 @@ dist-ssr
 # AWS-related files
 .graphqlconfig.yml
 aws-exports.js
+aws_docs

@@ -1,6 +1,6 @@
 import { DataTable } from '@/components/table/data-table';
 import { dustbinColumns } from './dustbin';
-import { testDustbins, testDustbinsStatus } from '@/lib/data';
+import { testDustbinsStatus } from '@/lib/data';
 import {
 	Dialog,
 	DialogContent,
@@ -14,6 +14,7 @@ import DustbinForm from './DustbinForm';
 import { useState } from 'react';
 import { getDustbins } from '@/services/getDustbins';
 import { useQuery } from '@tanstack/react-query';
+import TableSkeleton from '@/components/UI/TableSkeleton';
 
 function DustbinPage() {
 	const [formOpen, setFormOpen] = useState(false);
@@ -25,7 +26,7 @@ function DustbinPage() {
 	});
 
 	if (isLoading) {
-		return <div>Loading...</div>;
+		return <TableSkeleton />;
 	}
 	if (error) {
 		return <div>Error: {error.message}</div>;
@@ -56,7 +57,7 @@ function DustbinPage() {
 				</Dialog>
 			</div>
 			<DataTable
-				data={testDustbins || []}
+				data={data || []}
 				columns={dustbinColumns}
 				searchableColumns={[
 					{
