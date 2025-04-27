@@ -31,6 +31,8 @@ certificate_pem = os.getenv("CERTIFICATE_PEM")
 private_key_pem = os.getenv("PRIVATE_KEY_PEM")
 root_ca_pem = os.getenv("ROOT_CA_PEM")
 
+frontend_url = os.getenv("FRONTEND_URL")
+
 certificate_file = tempfile.NamedTemporaryFile(delete=False, mode="w", suffix=".pem")
 private_key_file = tempfile.NamedTemporaryFile(delete=False, mode="w", suffix=".key")
 root_ca_file = tempfile.NamedTemporaryFile(delete=False, mode="w", suffix=".crt")
@@ -59,7 +61,7 @@ mqtt_client.configureMQTTOperationTimeout(5)
 app = Flask(__name__)
 
 CORS(app,
-    resources={r"/*": {"origins": "http://localhost:3030"}},
+    resources={r"/*": {"origins": frontend_url}},
     methods=["POST", "OPTIONS"],
     allow_headers=["Content-Type"]
 )

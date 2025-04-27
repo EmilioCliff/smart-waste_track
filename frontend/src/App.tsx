@@ -13,7 +13,8 @@ import DustbinPage from './pages/dustbins/DustbinPage.js';
 import { Amplify } from 'aws-amplify';
 // App.tsx
 // @ts-ignore
-import config from './aws-exports.js';
+import config from './prod-aws-exports.js';
+// import config from './aws-exports.js';
 
 Amplify.configure(config);
 
