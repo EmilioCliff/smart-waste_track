@@ -3,7 +3,7 @@ import json
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import datetime
 from simulator import simulate_readings
-import simulator as simulator
+# import simulator as simulator
 from dotenv import load_dotenv
 import os
 

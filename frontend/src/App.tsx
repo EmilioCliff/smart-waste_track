@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Dashboard from './pages/Dashboard.js';
 import Apartments from './pages/Apartments.js';
-import CollectionRoutes from './pages/CollectionRoutes.js';
+import CollectionRoutes from './pages/routes/CollectionRoutes.js';
 import Login from './pages/Login.js';
 import AppLayout from './layouts/AppLayout.js';
 import Reviews from './pages/Reviews.js';

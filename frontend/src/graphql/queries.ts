@@ -12,6 +12,7 @@ export const getSensorData = /* GraphQL */ `query GetSensorData {
   getSensorData {
     timestamp
     device_id
+    apartment
     unix_timestamp
     longitude
     latitude
@@ -31,6 +32,7 @@ export const getSensorDataByDeviceId = /* GraphQL */ `query GetSensorDataByDevic
   getSensorDataByDeviceId(device_id: $device_id) {
     timestamp
     device_id
+    apartment
     unix_timestamp
     longitude
     latitude
@@ -45,4 +47,24 @@ export const getSensorDataByDeviceId = /* GraphQL */ `query GetSensorDataByDevic
 ` as GeneratedQuery<
   APITypes.GetSensorDataByDeviceIdQueryVariables,
   APITypes.GetSensorDataByDeviceIdQuery
+>;
+export const getSensorDataByTimestamp = /* GraphQL */ `query GetSensorDataByTimestamp($timestamp: String!) {
+  getSensorDataByTimestamp(timestamp: $timestamp) {
+    timestamp
+    device_id
+    apartment
+    unix_timestamp
+    longitude
+    latitude
+    co2_ppm
+    methane_ppm
+    percentage_full
+    is_fill_critical
+    is_gas_critical
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetSensorDataByTimestampQueryVariables,
+  APITypes.GetSensorDataByTimestampQuery
 >;

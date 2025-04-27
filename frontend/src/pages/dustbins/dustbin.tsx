@@ -10,7 +10,7 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 			<DataTableColumnHeader column={column} title="ID" />
 		),
 		cell: ({ row }) => (
-			<div className="text-center">{row.getValue('device_id')}</div>
+			<div className="text-center">{row.original.device_id}</div>
 		),
 		enableSorting: true,
 		enableHiding: true,
@@ -21,15 +21,12 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 			<DataTableColumnHeader column={column} title="Apartment Name" />
 		),
 		cell: ({ row }) => (
-			<div className="w-[80]">
-				N/A
-				{/* {row.original.apartmentName.toLowerCase()} */}
-			</div>
+			<div className="w-[80]">{row.original.apartment}</div>
 		),
-		// filterFn: (row, id, filterValue) => {
-		// 	const name = row.original.apartmentName.toLowerCase();
-		// 	return name.includes(filterValue.toLowerCase());
-		// },
+		filterFn: (row, id, filterValue) => {
+			const name = row.original.apartment.toLowerCase();
+			return name.includes(filterValue.toLowerCase());
+		},
 		enableSorting: true,
 	},
 	{
@@ -54,15 +51,13 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 			<DataTableColumnHeader column={column} title="Status" />
 		),
 		cell: ({ row }) => {
-			const distanceSensor = parseFloat(
-				row.original.percentage_full || '0',
-			);
-			const methanePPM = parseFloat(row.original.methane_ppm || '0');
-			const co2PPM = parseFloat(row.original.co2_ppm || '0');
+			const distanceSensor = row.original.percentage_full;
+			const methanePPM = row.original.methane_ppm;
+			const co2PPM = row.original.co2_ppm;
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM >= 50 || co2PPM >= 400;
+			const isToxic = methanePPM >= 90 || co2PPM >= 1500;
 
 			if (isToxic) {
 				status = 'toxic';
@@ -91,15 +86,13 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 			);
 		},
 		filterFn: (row, id, filterValues: string[]) => {
-			const distanceSensor = parseFloat(
-				row.original.percentage_full || '0',
-			);
-			const methanePPM = parseFloat(row.original.methane_ppm || '0');
-			const co2PPM = parseFloat(row.original.co2_ppm || '0');
+			const distanceSensor = row.original.percentage_full;
+			const methanePPM = row.original.methane_ppm;
+			const co2PPM = row.original.co2_ppm;
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM >= 50 || co2PPM >= 400;
+			const isToxic = methanePPM >= 90 || co2PPM >= 1500;
 
 			if (isToxic) {
 				status = 'toxic';

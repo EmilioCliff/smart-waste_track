@@ -1,6 +1,6 @@
 awscrt==0.23.5
 AWSIoTPythonSDK==1.5.4
-awsiotsdk @ file:///C:/Users/admin/Desktop/ECOBIN/aws-iot-device-sdk-python-v2
+# awsiotsdk @ file:///C:/Users/admin/Desktop/ECOBIN/aws-iot-device-sdk-python-v2
 boto3==1.37.38
 botocore==1.37.38
 jmespath==1.0.1

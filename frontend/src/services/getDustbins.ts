@@ -10,13 +10,15 @@ export const getDustbins = async (): Promise<SensorData[]> => {
 			authMode: 'apiKey',
 		});
 
-		const rawData = response.data.getSensorData;
+		const rawData = response.data.getSensorData ?? [];
 
-		const sanitizedData = SensorDataListSchema.parse(
-			(rawData ?? []).filter(Boolean),
-		);
+		// Parse and filter nulls
+		const parsedData = SensorDataListSchema.parse(rawData);
+		// const sanitizedData = parsedData.filter(
+		// 	(item): item is SensorData => item !== null,
+		// );
 
-		return sanitizedData;
+		return parsedData;
 	} catch (error) {
 		console.error('Error fetching dustbins:', error);
 		throw error;

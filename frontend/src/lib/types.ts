@@ -5,14 +5,15 @@ export const SensorDataSchema = z.object({
 	__typename: z.literal('SensorData'),
 	timestamp: z.string(),
 	device_id: z.string(),
+	apartment: z.string(),
 	unix_timestamp: z.string(),
 	longitude: z.string(),
 	latitude: z.string(),
-	co2_ppm: z.string(),
-	methane_ppm: z.string(),
-	percentage_full: z.string(),
-	is_fill_critical: z.boolean().nullable().optional(),
-	is_gas_critical: z.boolean().nullable().optional(),
+	co2_ppm: z.number(),
+	methane_ppm: z.number(),
+	percentage_full: z.number(),
+	is_fill_critical: z.boolean(),
+	is_gas_critical: z.boolean(),
 });
 
 export const SensorDataListSchema = z.array(SensorDataSchema);

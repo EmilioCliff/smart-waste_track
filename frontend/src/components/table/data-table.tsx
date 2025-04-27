@@ -21,9 +21,7 @@ import {
 	TableHeader,
 	TableRow,
 } from '../ui/table';
-// import { TableContext } from '@/context/TableContext';
 import { useTable } from '@/hooks/useTable';
-
 import { DataTablePagination } from './data-table-pagination';
 import { DataTableToolbar } from './data-table-toolbar';
 

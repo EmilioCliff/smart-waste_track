@@ -13,8 +13,10 @@ import { Button } from '@/components/ui/button';
 import DustbinForm from './DustbinForm';
 import { useState } from 'react';
 import { getDustbins } from '@/services/getDustbins';
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import TableSkeleton from '@/components/UI/TableSkeleton';
+import ErrorComponent from '@/components/UI/Error';
+import DustbinModal from './DustbinModal';
 
 function DustbinPage() {
 	const [formOpen, setFormOpen] = useState(false);
@@ -22,14 +24,24 @@ function DustbinPage() {
 	const { isLoading, error, data } = useQuery({
 		queryKey: ['dustbins'],
 		queryFn: getDustbins,
-		staleTime: 5 * 1000,
+		// staleTime: 5 * 1000,
+		// refetchInterval: 5 * 10000,
+		placeholderData: keepPreviousData,
 	});
+
+	// useEffect(() => {
+	// 	const f = async () => {
+	// 		const data = await getDustbin('2025-04-24 21:19:11.646000000');
+	// 		console.log('Dustbin:', data);
+	// 	};
+	// 	f();
+	// }, []);
 
 	if (isLoading) {
 		return <TableSkeleton />;
 	}
 	if (error) {
-		return <div>Error: {error.message}</div>;
+		return <ErrorComponent message={error.message} />;
 	}
 
 	console.log('Dustbins:', data);
@@ -38,7 +50,6 @@ function DustbinPage() {
 		<div className="px-4">
 			<div className="flex justify-between items-center mb-4">
 				<h1 className="text-3xl font-bold">Dustbins</h1>
-				{/* <button onClick={getDustbins}>Click Here</button> */}
 				<Dialog open={formOpen} onOpenChange={setFormOpen}>
 					<DialogTrigger asChild>
 						<Button className="text-xs py-1 font-bold" size="sm">
@@ -73,6 +84,7 @@ function DustbinPage() {
 					},
 				]}
 			/>
+			<DustbinModal />
 		</div>
 	);
 }

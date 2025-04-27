@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+./__pycache__
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -27,4 +30,13 @@ dist-ssr
 # AWS-related files
 .graphqlconfig.yml
 aws-exports.js
+graphql
+
+venv
+
+.env
+
 aws_docs
+
+
+
