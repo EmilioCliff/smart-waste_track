@@ -30,7 +30,7 @@ export function DataTableToolbar<TData>({
 	searchableColumns = [],
 	facetedFilterColumns = [],
 }: DataTableToolbarProps<TData>) {
-	const { search, filter, setSearch, setFilter, setPageIndex } = useTable();
+	const { setSearch, setFilter, setPageIndex } = useTable();
 
 	const [searchValue, setSearchValue] = useState('');
 

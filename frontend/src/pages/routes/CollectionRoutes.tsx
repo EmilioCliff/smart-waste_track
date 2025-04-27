@@ -32,7 +32,10 @@ function CollectionRoutes() {
 	}, []);
 
 	return (
-		<APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+		<APIProvider
+			apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+			region="KE"
+		>
 			<h2 className="text-3xl font-bold">Collection Routes</h2>
 			<Select onValueChange={setSelectedBinType}>
 				<SelectTrigger className="w-[180px] my-2">

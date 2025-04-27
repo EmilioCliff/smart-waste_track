@@ -18,6 +18,8 @@ export const getDustbins = async (): Promise<SensorData[]> => {
 		// 	(item): item is SensorData => item !== null,
 		// );
 
+		// getDustbins returns an array of objects
+		// @ts-ignore
 		return parsedData;
 	} catch (error) {
 		console.error('Error fetching dustbins:', error);

@@ -30,7 +30,7 @@ export default function OptimizedBinRoutes({
 		[],
 	);
 
-	const { isLoading, error, data } = useQuery({
+	const { data } = useQuery({
 		queryKey: ['dustbins'],
 		queryFn: getDustbins,
 		// staleTime: 5 * 1000,

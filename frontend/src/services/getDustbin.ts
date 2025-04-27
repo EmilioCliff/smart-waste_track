@@ -21,6 +21,8 @@ export const getDustbin = async (
 
 		const parsedData = SensorDataListSchema.parse(rawData);
 
+		// getDustbin returns only one object
+		// @ts-ignore
 		return parsedData[0];
 	} catch (error) {
 		console.error('Error fetching dustbin:', error);

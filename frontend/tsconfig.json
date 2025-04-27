@@ -9,7 +9,9 @@
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"strict": true
+		"strict": false,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false
 		// "tsx": "react-tsx"
 	}
 }

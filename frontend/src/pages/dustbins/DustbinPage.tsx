@@ -17,18 +17,22 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import TableSkeleton from '@/components/UI/TableSkeleton';
 import ErrorComponent from '@/components/UI/Error';
 import DustbinModal from './DustbinModal';
+import { APIProvider } from '@vis.gl/react-google-maps';
 
 function DustbinPage() {
 	const [formOpen, setFormOpen] = useState(false);
 
+	// const refetchInterval = Number(import.meta.env.VITE_REFETCH_INTERVAL);
+
 	const { isLoading, error, data } = useQuery({
 		queryKey: ['dustbins'],
 		queryFn: getDustbins,
-		// staleTime: 5 * 1000,
-		// refetchInterval: 5 * 10000,
+		staleTime: 5 * 1000,
+		// refetchInterval: refetchInterval,
 		placeholderData: keepPreviousData,
 	});
 
+	// console.log(import.meta.env.VITE_REFETCH_INTERVAL);
 	// useEffect(() => {
 	// 	const f = async () => {
 	// 		const data = await getDustbin('2025-04-24 21:19:11.646000000');
@@ -63,7 +67,13 @@ function DustbinPage() {
 								Enter the details for the new branch.
 							</DialogDescription>
 						</DialogHeader>
-						<DustbinForm onFormOpen={setFormOpen} />
+						<APIProvider
+							apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+							libraries={['places']}
+							region="KE"
+						>
+							<DustbinForm onFormOpen={setFormOpen} />
+						</APIProvider>
 					</DialogContent>
 				</Dialog>
 			</div>

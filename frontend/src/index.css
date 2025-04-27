@@ -368,3 +368,19 @@ body {
 .readonly-input {
 	@apply bg-gray-100 text-gray-500 dark:bg-[hsl(0,0%,10%)] dark:text-gray-400 dark:border-[hsl(0,0%,20%)];
 }
+
+.autocomplete-container .custom-list {
+	width: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.autocomplete-container .custom-list-item {
+	padding: 8px;
+}
+
+.autocomplete-container .custom-list-item:hover {
+	background: lightgrey;
+	cursor: pointer;
+}
