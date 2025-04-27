@@ -67,14 +67,14 @@ const items = [
 		url: '/routes',
 		icon: Inbox,
 	},
-	{
-		title: 'Apartments',
-		url: '/apartments',
-		icon: Calendar,
-	},
-	{
-		title: 'Reviews',
-		url: '/reviews',
-		icon: Search,
-	},
+	// {
+	// 	title: 'Apartments',
+	// 	url: '/apartments',
+	// 	icon: Calendar,
+	// },
+	// {
+	// 	title: 'Reviews',
+	// 	url: '/reviews',
+	// 	icon: Search,
+	// },
 ];
