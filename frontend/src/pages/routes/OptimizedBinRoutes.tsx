@@ -4,13 +4,6 @@ import MarkerWithInfoWindow from './MarkerWithInfoWindow';
 import { getDustbins } from '@/services/getDustbins';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
-export type Bin = {
-	id: number;
-	position: { lat: number; lng: number };
-	fillLevel: number;
-	gasLevel: 'Normal' | 'Critical';
-};
-
 export default function OptimizedBinRoutes({
 	selectedBinType,
 }: {
@@ -24,32 +17,20 @@ export default function OptimizedBinRoutes({
 	const [directionsRenderer, setDirectionsRenderer] =
 		useState<google.maps.DirectionsRenderer>();
 
-	// const [bins, setBins] = useState<Bin[]>([]);
 	const [canRoute, setCanRoute] = useState(false);
 	const routeMarkersRef = useRef<google.maps.marker.AdvancedMarkerElement[]>(
 		[],
 	);
 
+	const refetchInterval = Number(import.meta.env.VITE_REFETCH_INTERVAL);
+
 	const { data } = useQuery({
 		queryKey: ['dustbins'],
 		queryFn: getDustbins,
-		// staleTime: 5 * 1000,
-		// refetchInterval: 5 * 10000,
+		staleTime: 5 * 1000,
+		refetchInterval: refetchInterval,
 		placeholderData: keepPreviousData,
 	});
-
-	// useEffect(() => {
-	// 	const generatedBins: Bin[] = Array.from({ length: 10 }, (_, i) => ({
-	// 		id: i + 1,
-	// 		position: {
-	// 			lat: -1.2921 + Math.random() * 0.05, // Slightly spread around Nairobi
-	// 			lng: 36.8219 + Math.random() * 0.05,
-	// 		},
-	// 		fillLevel: Math.floor(Math.random() * 100),
-	// 		gasLevel: Math.random() > 0.8 ? 'Critical' : 'Normal', // 20% chance critical gas
-	// 	}));
-	// 	setBins(generatedBins);
-	// }, []);
 
 	useEffect(() => {
 		if (!routesLibrary || !map) return;
@@ -109,7 +90,6 @@ export default function OptimizedBinRoutes({
 				optimizeWaypoints: true,
 			})
 			.then((response) => {
-				console.log('Directions response:', response);
 				const route = response.routes[0];
 
 				const infoWindow = new google.maps.InfoWindow();
@@ -152,21 +132,6 @@ export default function OptimizedBinRoutes({
 
 				directionsRenderer.setDirections(response);
 			});
-
-		// 	directionsService
-		// 		.route({
-		// 			origin: { lat: -1.2921, lng: 36.8219 },
-		// 			destination: waypoints[waypoints.length - 1].position,
-		// 			waypoints: waypoints.map((bin) => ({
-		// 				location: bin.position,
-		// 				stopover: true,
-		// 			})),
-		// 			travelMode: google.maps.TravelMode.DRIVING,
-		// 			optimizeWaypoints: true,
-		// 		})
-		// 		.then((response) => {
-		// 			directionsRenderer.setDirections(response);
-		// 		});
 	}, [data, selectedBinType, directionsService, directionsRenderer]);
 
 	return (

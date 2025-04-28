@@ -22,13 +22,13 @@ import { APIProvider } from '@vis.gl/react-google-maps';
 function DustbinPage() {
 	const [formOpen, setFormOpen] = useState(false);
 
-	// const refetchInterval = Number(import.meta.env.VITE_REFETCH_INTERVAL);
+	const refetchInterval = Number(import.meta.env.VITE_REFETCH_INTERVAL);
 
 	const { isLoading, error, data } = useQuery({
 		queryKey: ['dustbins'],
 		queryFn: getDustbins,
 		staleTime: 5 * 1000,
-		// refetchInterval: refetchInterval,
+		refetchInterval: refetchInterval,
 		placeholderData: keepPreviousData,
 	});
 
@@ -48,7 +48,7 @@ function DustbinPage() {
 		return <ErrorComponent message={error.message} />;
 	}
 
-	console.log('Dustbins:', data);
+	// console.log('Dustbins:', data);
 
 	return (
 		<div className="px-4">

@@ -7,11 +7,13 @@ import DashboardSkeleton from '@/components/UI/DashboardSkeleton';
 import ErrorComponent from '@/components/UI/Error';
 
 function Dashboard() {
+	const refetchInterval = Number(import.meta.env.VITE_REFETCH_INTERVAL);
+
 	const { isLoading, error, data } = useQuery({
 		queryKey: ['dustbins'],
 		queryFn: getDustbins,
 		staleTime: 5 * 1000,
-		// refetchInterval: refetchInterval,
+		refetchInterval: refetchInterval,
 		placeholderData: keepPreviousData,
 	});
 

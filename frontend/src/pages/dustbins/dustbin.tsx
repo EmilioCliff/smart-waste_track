@@ -57,15 +57,15 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM >= 90 || co2PPM >= 1500;
+			const isToxic = methanePPM > 50 || co2PPM > 1000;
 
 			if (isToxic) {
 				status = 'toxic';
-			} else if (distanceSensor <= 10) {
+			} else if (distanceSensor >= 80) {
 				status = 'full';
-			} else if (distanceSensor > 10 && distanceSensor <= 20) {
+			} else if (distanceSensor >= 40 && distanceSensor < 80) {
 				status = 'half full';
-			} else if (distanceSensor > 20) {
+			} else if (distanceSensor < 40) {
 				status = 'okay';
 			}
 
@@ -92,15 +92,15 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM >= 90 || co2PPM >= 1500;
+			const isToxic = methanePPM > 50 || co2PPM > 1000;
 
 			if (isToxic) {
 				status = 'toxic';
-			} else if (distanceSensor <= 10) {
+			} else if (distanceSensor >= 80) {
 				status = 'full';
-			} else if (distanceSensor > 10 && distanceSensor <= 20) {
+			} else if (distanceSensor >= 40 && distanceSensor < 80) {
 				status = 'half full';
-			} else if (distanceSensor > 20) {
+			} else if (distanceSensor < 40) {
 				status = 'okay';
 			}
 
