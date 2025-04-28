@@ -9,7 +9,6 @@ BIN_CONFIG = {
 }
 
 
-# Define bin metadata
 BIN_METADATA = [
     {
         "device_id": "BIN-001",
@@ -31,22 +30,20 @@ BIN_METADATA = [
     },
 ]
 
+# Track current index
+current_bin_index = 0
 
 def simulate_readings():
     """Simulate sensor readings with random bin metadata included"""
-    # Pick a random bin
-    bin_info = random.choice(BIN_METADATA)
+    global current_bin_index
 
-    # Simulate distance
+    bin_info = BIN_METADATA[current_bin_index]
     distance_cm = round(random.uniform(5.0, BIN_CONFIG["max_height_cm"]), 1)
-
-    # Calculate percentage full
     percentage_full = round(
         ((BIN_CONFIG["max_height_cm"] - distance_cm) / BIN_CONFIG["max_height_cm"]) * 100,
         1,
     )
 
-    # Critical checks
     is_fill_critical = percentage_full >= BIN_CONFIG["fill_critical_percentage"]
     co2_ppm = round(random.uniform(400, 2000), 0)
     methane_ppm = round(random.uniform(10, 100), 0)
@@ -55,7 +52,8 @@ def simulate_readings():
         or methane_ppm > BIN_CONFIG["methane_critical_ppm"]
     )
 
-    # Combine all into one return dictionary
+    current_bin_index = (current_bin_index + 1) % len(BIN_METADATA)
+
     return {
         "device_id": bin_info["device_id"],
         "apartment": bin_info["apartment"],
