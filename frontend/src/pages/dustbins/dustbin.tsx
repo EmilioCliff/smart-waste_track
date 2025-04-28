@@ -57,7 +57,7 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM > 50 || co2PPM > 1000;
+			const isToxic = methanePPM > 80 || co2PPM > 1500;
 
 			if (isToxic) {
 				status = 'toxic';
@@ -92,7 +92,7 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM > 50 || co2PPM > 1000;
+			const isToxic = methanePPM > 80 || co2PPM > 1500;
 
 			if (isToxic) {
 				status = 'toxic';

@@ -146,7 +146,7 @@ function DustbinForm({ onFormOpen }: LoanFormProps) {
 								</FormItem>
 							)}
 						/>
-						<div className="autocomplete-container col-span-2">
+						<div className="autocomplete-container md:col-span-2">
 							<FormItem>
 								<FormLabel>Select location</FormLabel>
 								<Input

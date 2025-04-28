@@ -20,7 +20,7 @@ function DustbinModal() {
 				}
 			}}
 		>
-			<DialogContent className="min-w-[1200px] flex flex-col overflow-y-auto">
+			<DialogContent className="lg:max-w-screen-lg overflow-y-scroll max-h-screen flex flex-col">
 				<DialogHeader>
 					<DialogTitle>Dustbin Details</DialogTitle>
 					<DialogDescription>
