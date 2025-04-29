@@ -32,23 +32,12 @@ function DustbinPage() {
 		placeholderData: keepPreviousData,
 	});
 
-	// console.log(import.meta.env.VITE_REFETCH_INTERVAL);
-	// useEffect(() => {
-	// 	const f = async () => {
-	// 		const data = await getDustbin('2025-04-24 21:19:11.646000000');
-	// 		console.log('Dustbin:', data);
-	// 	};
-	// 	f();
-	// }, []);
-
 	if (isLoading) {
 		return <TableSkeleton />;
 	}
 	if (error) {
 		return <ErrorComponent message={error.message} />;
 	}
-
-	// console.log('Dustbins:', data);
 
 	return (
 		<div className="px-4">

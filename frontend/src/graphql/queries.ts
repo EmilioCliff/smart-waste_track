@@ -16,8 +16,7 @@ export const getSensorData = /* GraphQL */ `query GetSensorData {
     unix_timestamp
     longitude
     latitude
-    co2_ppm
-    methane_ppm
+    air_quality
     percentage_full
     is_fill_critical
     is_gas_critical
@@ -36,8 +35,7 @@ export const getSensorDataByDeviceId = /* GraphQL */ `query GetSensorDataByDevic
     unix_timestamp
     longitude
     latitude
-    co2_ppm
-    methane_ppm
+    air_quality
     percentage_full
     is_fill_critical
     is_gas_critical
@@ -56,8 +54,7 @@ export const getSensorDataByTimestamp = /* GraphQL */ `query GetSensorDataByTime
     unix_timestamp
     longitude
     latitude
-    co2_ppm
-    methane_ppm
+    air_quality
     percentage_full
     is_fill_critical
     is_gas_critical

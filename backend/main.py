@@ -121,15 +121,14 @@ def publish_data():
                 "distance_cm": readings["distance_cm"],
                 "is_fill_critical": readings["is_fill_critical"],
                 "percentage_full": readings["percentage_full"],
-                "co2_ppm": readings["co2_ppm"],
-                "methane_ppm": readings["methane_ppm"],
+                "air_quality": readings["air_quality"],
                 "is_gas_critical": readings["is_gas_critical"],
             }
             # Convert to JSON and publish
             mqtt_client.publish(TOPIC, json.dumps(payload), 1)
             print(f"Published: {payload}")
 
-            time.sleep(300)   
+            time.sleep(10)   
 
     except KeyboardInterrupt:
         print("\nDisconnecting...")

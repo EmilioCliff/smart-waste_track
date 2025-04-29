@@ -90,7 +90,7 @@ const DashTimeSeriesGraph = ({ data }: { data: SensorData[] }) => {
 								type="monotone"
 								dataKey={`${deviceId}_distance`}
 								stroke={colors[index % colors.length]}
-								name={`${deviceId} - Distance`}
+								name={`${deviceId} - Percentage Full(%)`}
 								yAxisId="left"
 								connectNulls={true}
 								activeDot={{ r: 8 }}
@@ -104,7 +104,7 @@ const DashTimeSeriesGraph = ({ data }: { data: SensorData[] }) => {
 								dataKey={`${deviceId}_gas`}
 								stroke={colors[(index + 5) % colors.length]}
 								strokeDasharray="5 5"
-								name={`${deviceId} - Gas`}
+								name={`${deviceId} - Air Quality`}
 								yAxisId="right"
 								connectNulls={true}
 								activeDot={{ r: 8 }}
@@ -140,9 +140,11 @@ function transformSensorDataToTimeSeries(
 		}
 
 		groupedByTime[time][`${entry.device_id}_distance`] = Number(
-			(100 - entry.percentage_full).toFixed(1),
+			entry.percentage_full.toFixed(1),
 		);
-		groupedByTime[time][`${entry.device_id}_gas`] = Number(entry.co2_ppm);
+		groupedByTime[time][`${entry.device_id}_gas`] = Number(
+			entry.air_quality,
+		);
 	});
 
 	return Object.values(groupedByTime).sort((a, b) => {

@@ -74,7 +74,7 @@ export default function OptimizedBinRoutes({
 
 		directionsService
 			.route({
-				origin: { lat: -1.2921, lng: 36.8219 },
+				origin: { lat: -1.2921, lng: 36.8219 }, // Nairobi
 				destination: {
 					lat: Number(waypoints[waypoints.length - 1].latitude),
 					lng: Number(waypoints[waypoints.length - 1].longitude),

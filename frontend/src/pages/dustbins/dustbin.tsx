@@ -52,20 +52,19 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 		),
 		cell: ({ row }) => {
 			const distanceSensor = row.original.percentage_full;
-			const methanePPM = row.original.methane_ppm;
-			const co2PPM = row.original.co2_ppm;
+			const gasCritical = row.original.is_gas_critical;
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM > 80 || co2PPM > 1500;
-
-			if (isToxic) {
+			if (gasCritical) {
 				status = 'toxic';
-			} else if (distanceSensor >= 80) {
+			} else if (distanceSensor >= 75) {
 				status = 'full';
-			} else if (distanceSensor >= 40 && distanceSensor < 80) {
+			} else if (distanceSensor >= 50 && distanceSensor < 75) {
+				status = '3/4 full';
+			} else if (distanceSensor >= 35 && distanceSensor < 50) {
 				status = 'half full';
-			} else if (distanceSensor < 40) {
+			} else if (distanceSensor < 35) {
 				status = 'okay';
 			}
 
@@ -87,20 +86,19 @@ export const dustbinColumns: ColumnDef<SensorData>[] = [
 		},
 		filterFn: (row, _id, filterValues: string[]) => {
 			const distanceSensor = row.original.percentage_full;
-			const methanePPM = row.original.methane_ppm;
-			const co2PPM = row.original.co2_ppm;
+			const gasCritical = row.original.is_gas_critical;
 
 			let status = 'defaulted';
 
-			const isToxic = methanePPM > 80 || co2PPM > 1500;
-
-			if (isToxic) {
+			if (gasCritical) {
 				status = 'toxic';
-			} else if (distanceSensor >= 80) {
+			} else if (distanceSensor >= 75) {
 				status = 'full';
-			} else if (distanceSensor >= 40 && distanceSensor < 80) {
+			} else if (distanceSensor >= 50 && distanceSensor < 75) {
+				status = '3/4 full';
+			} else if (distanceSensor >= 35 && distanceSensor < 50) {
 				status = 'half full';
-			} else if (distanceSensor < 40) {
+			} else if (distanceSensor < 35) {
 				status = 'okay';
 			}
 
