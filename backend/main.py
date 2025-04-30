@@ -108,27 +108,28 @@ flask_thread.start()
 def publish_data():
     try:
         while True:
-            # Get CPU utilization
-            readings = simulate_readings()
-            timestamp = int(datetime.datetime.now().timestamp() * 1000)
-            # Create payload
-            payload = {
-                "device_id": readings["device_id"],
-                "apartment": readings["apartment"],
-                "timestamp": timestamp,
-                "latitude": readings["latitude"],
-                "longitude": readings["longitude"],
-                "distance_cm": readings["distance_cm"],
-                "is_fill_critical": readings["is_fill_critical"],
-                "percentage_full": readings["percentage_full"],
-                "air_quality": readings["air_quality"],
-                "is_gas_critical": readings["is_gas_critical"],
-            }
-            # Convert to JSON and publish
-            mqtt_client.publish(TOPIC, json.dumps(payload), 1)
-            print(f"Published: {payload}")
+            for bin in BIN_METADATA:
+                # Get CPU utilization
+                readings = simulate_readings()
+                timestamp = int(datetime.datetime.now().timestamp() * 1000)
+                # Create payload
+                payload = {
+                    "device_id": readings["device_id"],
+                    "apartment": readings["apartment"],
+                    "timestamp": timestamp,
+                    "latitude": readings["latitude"],
+                    "longitude": readings["longitude"],
+                    "distance_cm": readings["distance_cm"],
+                    "is_fill_critical": readings["is_fill_critical"],
+                    "percentage_full": readings["percentage_full"],
+                    "air_quality": readings["air_quality"],
+                    "is_gas_critical": readings["is_gas_critical"],
+                }
+                # Convert to JSON and publish
+                mqtt_client.publish(TOPIC, json.dumps(payload), 1)
+                print(f"Published: {payload}")
 
-            time.sleep(10)   
+            time.sleep(120)  # Sleep for 2 minutes
 
     except KeyboardInterrupt:
         print("\nDisconnecting...")
